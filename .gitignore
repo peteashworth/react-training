@@ -40,3 +40,5 @@ dist
 typings
 reports
 prep
+server-dist
+client-dist
