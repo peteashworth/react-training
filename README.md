@@ -1,4 +1,4 @@
-# Welcome to the Front-End Boot Camp
+# Welcome to Intermediate React/Redux/GraphQL/Relay Class
 
 ## Instructor
 
@@ -8,7 +8,7 @@ Eric Greene - [http://t4d.io](http://t4d.io) - [LinkedIn](https://www.linkedin.c
 
 Class:
 
-- Monday - Friday, next 2 weeks: 9:00am to 5pm PDT
+- Monday - Friday, 9:00am to 5:00pm PDT
 
 Breaks:
 
@@ -19,23 +19,23 @@ Breaks:
 
 ## Course Outline
 
-- 2 Days: React JumpStart, HTML, CSS, Accessibility
-- 3 Days: React + JavaScript
-- 3 Days: React + Redux
-- 1.5 Days: Project
-- 0.5 Day: Unit Testing + Other Topics (class ends at 4pm)
+- Monday: ES2017, GraphQL
+- Tuesday: React
+- Wednesday: React, Redux
+- Thursday: Redux, Relay (GraphQL part)
+- Friday: Relay (React part)
 
 ## Links
 
 ### Instructor's Resources
 
-- [React Lab](https://github.com/Microsoft/TechnicalCommunityContent/tree/master/Web%20Frameworks/React/Session%202%20-%20Hands%20On)
-- [DevelopIntelligence](http://www.developintelligence.com/)
+- [Accelebrate](http://www.accelebrate.com/)
 - [Eric's Blog](http://t4d.io/)
 - [WintellectNOW](https://www.wintellectnow.com/Home/Instructor?instructorId=EricGreene) - Special Offer Code: GREENE-2016
 - [Microsoft Virtual Academy](https://mva.microsoft.com/search/SearchResults.aspx#!q=Eric%20Greene&lang=1033)
 - [React Blog Posts](https://github.com/training4developers/react-flux-blog)
 - [React SitePoint](http://www.sitepoint.com/author/ericgreene/)
+- [React Lab](https://github.com/Microsoft/TechnicalCommunityContent/tree/master/Web%20Frameworks/React/Session%202%20-%20Hands%20On)
 
 ### Other Resources
 
@@ -54,9 +54,7 @@ This is a starter project for creating an HTML/SASS/React/Redux/Relay applicatio
 
 Step 0. Please completely read and thoroughly understand the instructions below before performing them.
 
-Step 1. Download Install Node.js version 7 or higher. Version 7 or higher MUST be installed. If you have an older Node.js version that you need to keep, then use something like [NVM](https://www.npmjs.com/package/nvm) to manage multiple Node.js installations. To install Node.js click [here](https://nodejs.org).
-
-Note: Seriously, please use Node version 7 or higher. There are certain features such as destructuring and spreads which will not work with earlier versions of Node.js. If you use an earlier version your code will fail.
+Step 1. Download Install Node.js version 8 or higher. Version 8 or higher MUST be installed. If you have an older Node.js version that you need to keep, then use something like [NVM](https://www.npmjs.com/package/nvm) to manage multiple Node.js installations. To install Node.js click [here](https://nodejs.org).
 
 Step 2. Download the repository as a zip file. Extract the zip file to a working folder on your system.
 
@@ -88,11 +86,11 @@ This terminal window is now running the web server, a second terminal window wil
 
 Step 5. Open a web browser, and navigate to [http://localhost:3000](http://localhost:3000).  The starter web application should load and be usable.
 
-Note: This command will run, and then wait for file changes to process updated source code from the **src** folder. Webpack does **NOT** exit and return to a terminal prompt. Please do not close this terminal window.
+Note: This command will run, and then wait for file changes to process updated source code from the **client** and **server** folders. Webpack does **NOT** exit and return to a terminal prompt. Please do not close this terminal window.
 
 #### To Modify the Web Application
 
-Step 6. Open your favorite text editor (such as [Visual Studio Code](https://code.visualstudio.com)), and modify the files in the **src** folder. When file changes are saved, **webpack** will automatically transpile and bundle the application code and assets, and load it into the memory of the web server. To see the changes, reload your web browser (live reload is enabled so reloading will probably occur automatically).
+Step 6. Open your favorite text editor (such as [Visual Studio Code](https://code.visualstudio.com)), and modify the files in the **client** and **server** folders. When file changes are saved, **webpack** and **nodemon** will automatically transpile and bundle the server and client application code and assets. To see the changes, reload your web browser (live reload is enabled so reloading will probably occur automatically).
 
 I recommend install the following Visual Studio Code extensions:
 
@@ -101,6 +99,7 @@ I recommend install the following Visual Studio Code extensions:
 - DavidAnson.vscode-markdownlint
 - glen-84.sass-lint
 - robertohuertasm.vscode-icons
+- kumar-harsh.graphql-for-vscode
 
 ### NPM Scripts Command Reference
 
@@ -109,8 +108,12 @@ From a terminal, in the root project folder (where the **package.json** file exi
 - **npm start** - starts the web server
 - **npm run clean** - removes the **dist** folder
 - **npm run build** - removes the dist folder, builds and deploys the server app, and the web app
-- **npm run webpack** - runs webpack in watch mode so web app file changes are automatically processed, and deployed to the **dist/www** folder
-- **npm run webpack-once** - runs webpack once to process web app files, and deploys them to the **dist/www** folder
+- **npm run server** - runs rollup, outputs the generated server files, and executes them with nodemon
+- **npm run client** - runs the webpack development web server
+- **npm run webpack:once** - runs webpack one-time, and generates client files
+- **npm run rollup** - runs rollup to generate server code in watch mode
+- **npm run rollup:once** - runs rollup one time to generate server code
+- **npm run rest** - runs the JSON server to provide REST services
 
 ### Useful Resources
 

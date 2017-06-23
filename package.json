@@ -7,7 +7,7 @@
     "start": "concurrently \"npm run rest\" \"npm run server\" \"npm run client\"",
     "clean": "rimraf server-dist client-dist",
     "build": "npm run clean && npm run rollup && npm run webpack:once",
-    "server": "rollup -c && concurrently \"npm run rollup\" \"nodemon --watch server-dist ./server-dist/index-widgets-graphql\"",
+    "server": "npm run rollup:once && concurrently \"npm run rollup\" \"nodemon --watch server-dist ./server-dist/index-widgets-graphql\"",
     "client": "webpack-dev-server",
     "webpack:once": "webpack",
     "rollup": "rollup -c -w",
