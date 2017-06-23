@@ -2,7 +2,7 @@ import http from 'http';
 import express from 'express';
 import graphqlHttp from 'express-graphql';
 
-import { schema } from './widgets/schema';
+import { schema } from './widgets-graphql/schema';
 
 const port = 3020;
 
@@ -20,5 +20,5 @@ app.use('/', graphqlHttp({
 const server = http.createServer(app);
 
 server.listen(port, () => {
-  console.log(`graphql server stated on port ${port}`);
+  console.log(`widgets graphql server stated on port ${port}`);
 });
