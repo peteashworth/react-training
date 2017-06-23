@@ -4,8 +4,8 @@ useFlexbox: true
 styleLoaders:
   - style
   - css
-  - postcss
   - sass
+  - postcss
 extractStyles: false
 styles: true
 scripts: false

@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 // load the web server settings from package.json
-const {devServer} = require('./package.json');
+const { devServer } = require('./package.json');
 
 // used to copy content from the src folder to the dist folder
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -66,15 +66,8 @@ const webpackConfig = {
         test: /\.scss$/,
         use: [
           'style-loader',
-          'css-loader', {
-            loader: 'postcss-loader',
-            // configuration for the postcss loader which modifies CSS after processing
-            options: {
-              // autoprefixer plugin for postcss adds vendor specific prefixing for
-              // non-standard or experimental css properties
-              plugins: [require('autoprefixer')]
-            }
-          },
+          'css-loader',
+          'postcss-loader',
           'sass-loader'
         ]
       }
