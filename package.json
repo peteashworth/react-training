@@ -7,7 +7,7 @@
     "start": "concurrently \"npm run rest\" \"npm run server\" \"npm run client\"",
     "clean": "rimraf server-dist client-dist",
     "build": "npm run clean && npm run rollup && npm run webpack-once",
-    "server": "concurrently \"npm run rollup\" \"nodemon --watch server-dist ./server-dist/index\"",
+    "server": "rollup -c && concurrently \"npm run rollup\" \"nodemon --watch server-dist ./server-dist/index\"",
     "client": "webpack-dev-server",
     "webpack-once": "webpack",
     "rollup": "rollup -c -w",
@@ -25,6 +25,8 @@
   "homepage": "https://github.com/training4developers/react_06262017#readme",
   "devDependencies": {
     "concurrently": "3.0.0",
+    "esformatter": "^0.10.0",
+    "esformatter-jsx": "^8.0.0",
     "json-server": "0.10.1",
     "nodemon": "1.11.0",
     "rimraf": "2.5.3",
@@ -80,6 +82,7 @@
     "relay-compiler": "1.0.0",
     "resolve-url-loader": "2.0.2",
     "rollup": "0.42.0",
+    "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "3.0.0",
     "rollup-watch": "4.0.0",
     "sass-loader": "6.0.3",
@@ -92,11 +95,27 @@
     "contentBase": "client-dist",
     "historyApiFallback": true,
     "port": 3000,
-    "proxy": {
-      "/api": {
+    "proxy": [
+      {
+        "context": [
+          "/graphql",
+          "/graphql-relay"
+        ],
+        "target": "http://localhost:3020",
+        "changeOrigin": true,
+        "secure": false
+      },
+      {
+        "context": [
+          "/api"
+        ],
         "target": "http://localhost:3010",
-        "changeOrigin": true
+        "changeOrigin": true,
+        "secure": false,
+        "pathRewrite": {
+          "^/api": ""
+        }
       }
-    }
+    ]
   }
 }

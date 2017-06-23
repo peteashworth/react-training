@@ -9,4 +9,4 @@ class HelloWorld extends React.Component {
 }
 
 ReactDOM.render(
-  <HelloWorld/>, document.querySelector('main'));
+  <HelloWorld />, document.querySelector('main'));

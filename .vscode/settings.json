@@ -12,9 +12,9 @@
     "**/client-dist": true,
     "**/dist": true
   },
-	"editor.tabSize": 2,
-	"editor.insertSpaces": true,
-	"editor.detectIndentation": false,
-  "editor.wordWrapColumn": 160,
-  "react.beautify.onSave": true
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.wordWrapColumn": 160
 }
