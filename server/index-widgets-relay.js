@@ -13,7 +13,7 @@ app.use('/', graphqlHttp({
   pretty: true,
   graphiql: true,
   context: {
-    baseUrl: 'http://localhost:3010'
+    baseUrl: 'http://localhost:3000/api'
   }
 }));
 

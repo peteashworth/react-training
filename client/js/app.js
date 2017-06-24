@@ -3,22 +3,33 @@ import '../scss/styles.scss';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
-import { Jumbotron } from 'react-bootstrap';
+import { List } from 'immutable';
+import { Breadcrumb } from 'react-bootstrap';
 
-class HelloWorld extends React.Component {
+class DemoApp extends React.Component {
+
+  static propTypes = {
+    trail: PropTypes.instanceOf(List),
+  };
 
   render() {
     return <div className="row justify-content-center">
-      <div className="col-8 col-offset-2">
-        <Jumbotron className="center-block">
-          <h1>Welcome to Class!</h1>
-          <p>A starter project for creating React/Redux/GraphQL/Relay applications!</p>
-        </Jumbotron>
+      <div className="col-12">
+        <Breadcrumb>
+          {this.props.trail.map((trailItem, i) => <Breadcrumb.Item key={i} href="#">
+            {trailItem}
+          </Breadcrumb.Item>)}
+        </Breadcrumb>
       </div>
     </div>;
   }
 }
 
+let trail = List(['Home', 'Widget']);
+
+trail = trail.push('Details');
+
 ReactDOM.render(
-  <HelloWorld />, document.querySelector('main'));
+  <DemoApp trail={trail} />, document.querySelector('main'));
