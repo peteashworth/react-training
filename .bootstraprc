@@ -1,6 +1,5 @@
 loglevel: disabled
-bootstrapVersion: 4
-useFlexbox: true
+bootstrapVersion: 3
 styleLoaders:
   - style
   - css

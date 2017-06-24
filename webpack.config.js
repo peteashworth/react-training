@@ -10,7 +10,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // configure the environment object for development mode
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
-// const ENV = process.env.ENV = process.env.NODE_ENV = 'production'; configure
+// const ENV = process.env.ENV = process.env.NODE_ENV = 'production';
+
 // source and distribution folder paths
 const srcFolder = 'client';
 const destFolder = 'client-dist';
@@ -43,6 +44,20 @@ const webpackConfig = {
 
   module: {
     rules: [
+      {
+        test: /\.(woff2?|svg)$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 10000
+          },
+        }],
+      },
+      {
+        test: /\.(ttf|eot)$/,
+        use: ['file-loader'],
+      },
+
       // process all JavaScript files through the Babel preprocessor this enables
       // support for ES2017 and earlier including modules
       {
