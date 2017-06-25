@@ -1,10 +1,10 @@
 {
-  "passPerPreset": true,
   "presets": [
     "latest",
     "react"
   ],
   "plugins": [
+    "relay",
     "transform-class-properties"
   ]
 }

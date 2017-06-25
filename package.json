@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run rest\" \"npm run server\" \"npm run client\"",
-    "test": "jest",
-    "test:debug": "node --inspect-brk ./node_modules/.bin/jest --runInBand -i --env jest-environment-node-debug",
+    "test": "jest --env node --coverage",
+    "test:debug": "node --inspect-brk ./node_modules/.bin/jest --runInBand --env jest-environment-node-debug",
     "clean": "rimraf server-dist client-dist",
     "build": "npm run clean && npm run rollup && npm run webpack:once",
     "server": "npm run rollup:once && concurrently \"npm run rollup\" \"nodemon --watch server-dist ./server-dist/index-widgets-graphql\"",

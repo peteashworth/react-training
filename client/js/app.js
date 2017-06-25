@@ -1,8 +1,11 @@
 import 'bootstrap-loader';
 import '../scss/styles.scss';
 
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+
+console.log(React);
+
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import { List } from 'immutable';

@@ -67,11 +67,19 @@ const webpackConfig = {
           {
             loader: 'babel-loader',
             options: {
-              passPerPreset: true,
               presets: [
-                'latest', 'react',
+                // use the latest ES2017 features, but disable modules
+                // Webpack 2 provides module support
+                ['latest', { modules: false }],
+                // react is required for JSX support
+                'react',
               ],
-              plugins: ['transform-class-properties']
+              plugins: [
+                // verifies queries against GraphQL schema
+                'relay',
+                // enable support for class properties
+                'transform-class-properties',
+              ]
             }
           }
         ]
