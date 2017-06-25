@@ -1,0 +1,9 @@
+{
+  "passPerPreset": true,
+  "presets": [
+    "latest"
+  ],
+  "plugins": [
+    "transform-class-properties"
+  ]
+}

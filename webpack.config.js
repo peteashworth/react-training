@@ -69,7 +69,7 @@ const webpackConfig = {
             options: {
               passPerPreset: true,
               presets: [
-                'react', 'latest'
+                'latest', 'react',
               ],
               plugins: ['transform-class-properties']
             }

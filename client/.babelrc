@@ -1,0 +1,10 @@
+{
+  "passPerPreset": true,
+  "presets": [
+    "latest",
+    "react"
+  ],
+  "plugins": [
+    "transform-class-properties"
+  ]
+}

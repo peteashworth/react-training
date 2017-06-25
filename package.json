@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run rest\" \"npm run server\" \"npm run client\"",
+    "test": "jest",
+    "test:debug": "node --inspect-brk ./node_modules/.bin/jest --runInBand -i --env jest-environment-node-debug",
     "clean": "rimraf server-dist client-dist",
     "build": "npm run clean && npm run rollup && npm run webpack:once",
     "server": "npm run rollup:once && concurrently \"npm run rollup\" \"nodemon --watch server-dist ./server-dist/index-widgets-graphql\"",
@@ -25,11 +27,16 @@
   },
   "homepage": "https://github.com/training4developers/react_06262017#readme",
   "devDependencies": {
+    "babel-jest": "20.0.3",
     "concurrently": "3.0.0",
+    "enzyme": "2.9.1",
     "esformatter": "0.10.0",
     "esformatter-jsx": "8.0.0",
+    "jest": "20.0.4",
+    "jest-environment-node-debug": "2.0.0",
     "json-server": "0.10.1",
     "nodemon": "1.11.0",
+    "react-test-renderer": "15.6.1",
     "rimraf": "2.5.3",
     "sass-lint": "1.10.2",
     "webpack-dev-server": "2.4.2"
