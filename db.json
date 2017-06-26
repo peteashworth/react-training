@@ -55,6 +55,46 @@
       "size": "tiny",
       "quantity": 10,
       "ownerId": 3
+    },
+    {
+      "name": "Bob",
+      "description": "Bob is cool",
+      "color": "blue",
+      "size": "small",
+      "quantity": 12,
+      "id": 5
+    },
+    {
+      "name": "Bob",
+      "description": "Bob is cool",
+      "color": "blue",
+      "size": "small",
+      "quantity": 12,
+      "id": 6
+    },
+    {
+      "name": "Bob",
+      "description": "Bob is cool",
+      "color": "blue",
+      "size": "small",
+      "quantity": 12,
+      "id": 7
+    },
+    {
+      "name": "Bob",
+      "description": "Bob is cool",
+      "color": "blue",
+      "size": "small",
+      "quantity": 12,
+      "id": 8
+    },
+    {
+      "name": "Bob",
+      "description": "Bob is cool",
+      "color": "blue",
+      "size": "small",
+      "quantity": 12,
+      "id": 9
     }
   ],
   "people": [

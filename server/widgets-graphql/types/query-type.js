@@ -1,13 +1,7 @@
 import { GraphQLObjectType, GraphQLList, GraphQLID } from 'graphql';
-import fetch from 'node-fetch';
 
+import { WidgetData } from '../widget-data';
 import { widgetType } from './widget-type';
-
-// exercise 5
-
-// use the context of baseUrl to setup URL for widget, cars, and car
-// use a template literal to build the URL
-// and be sure to encode data values in the URL
 
 export const query = new GraphQLObjectType({
 
@@ -18,9 +12,10 @@ export const query = new GraphQLObjectType({
     widgets: {
       type: new GraphQLList(widgetType),
       description: 'A list of widgets',
-      resolve: (_1, _2, { baseUrl }) =>
-        fetch(`${baseUrl}/widgets`)
-          .then(res => res.json()),
+      resolve: (_1, _2, { baseUrl }) => {
+        const widgetData = new WidgetData(baseUrl);
+        return widgetData.all();
+      },
     },
     widget: {
       type: widgetType,
@@ -31,9 +26,10 @@ export const query = new GraphQLObjectType({
           description: 'The id of the widget to load',
         }
       },
-      resolve: (_, { widgetId }) =>
-        fetch('http://localhost:3000/api/widgets/' + encodeURIComponent(widgetId))
-          .then(res => res.json()),
+      resolve: (_, { widgetId }, { baseUrl }) => {
+        const widgetData = new WidgetData(baseUrl);
+        return widgetData.one(widgetId);
+      },
     }
   }),
 });
