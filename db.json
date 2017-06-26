@@ -1,4 +1,10 @@
 {
+  "cars": [
+    {
+      "id": 1,
+      "make": "GM"
+    }
+  ],
   "owners": [
     {
       "id": 1,
@@ -49,22 +55,6 @@
       "size": "tiny",
       "quantity": 10,
       "ownerId": 3
-    },
-    {
-      "name": "Test",
-      "description": "Test Desc",
-      "color": "blue",
-      "size": "small",
-      "quantity": 12,
-      "id": 5
-    },
-    {
-      "name": "Test",
-      "description": "Test Desc",
-      "color": "blue",
-      "size": "small",
-      "quantity": 12,
-      "id": 6
     }
   ],
   "people": [

@@ -1,17 +1,17 @@
 import { GraphQLObjectType, GraphQLList, GraphQLID } from 'graphql';
+import fetch from 'node-fetch';
 
 import { widgetType } from './widget-type';
 
-// exercise 2
+// exercise 3
 
-// create a car type with the following fields
-// id: GraphQLInt
-// make: GraphQLString
-// model: GraphQLString
-// year: GraphQLInt
-// price: GraphQLFloat
+// move your car array to db.json
+// [
+//  "cars": stringified content
+// ]
 
-// add to the query type, two fields, cars and car(carId)
+// configure the cars and car endpoints to pull data from the JSON server
+
 
 const widgetData = [
   {
@@ -37,7 +37,14 @@ export const query = new GraphQLObjectType({
       type: new GraphQLList(widgetType),
 
       description: 'A list of widgets',
-      resolve: () => widgetData,
+      resolve: () => {
+
+        return fetch('http://localhost:3000/api/widgets').then(res => res.json());
+
+        // const res = await fetch('http://localhost:3000/api/widgets');
+        // const widgetList = await res.json();
+        // return widgetList;
+      },
     },
     widget: {
       type: widgetType,
@@ -52,7 +59,12 @@ export const query = new GraphQLObjectType({
       // second params are the args
       // third param is the context object
       // fourth param is the field info
-      resolve: (_, { widgetId }) => widgetData.find(w => w.id === widgetId),
+      resolve: (_, { widgetId }) => {
+
+        return fetch('http://localhost:3000/api/widgets/' + widgetId)
+          .then(res => res.json());
+
+      },
     }
   }),
 });
