@@ -2,7 +2,7 @@ import { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLInt } from 'graphql
 
 export const widgetType = new GraphQLObjectType({
 
-  name: 'Widget',
+  name: 'WidgetType',
   description: 'A widget object',
   fields: () => ({
     id: {

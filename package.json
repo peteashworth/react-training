@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run rest\" \"npm run server\" \"npm run client\"",
-    "test": "jest --env node --coverage",
+    "test": "jest --coverage",
     "test:debug": "node --inspect-brk ./node_modules/.bin/jest --runInBand --env jest-environment-node-debug",
     "clean": "rimraf server-dist client-dist",
     "build": "npm run clean && npm run rollup && npm run webpack:once",
@@ -92,6 +92,7 @@
     "redux-saga": "0.15.4",
     "redux-thunk": "2.2.0",
     "relay-compiler": "1.1.0",
+    "relay-runtime": "1.1.0",
     "reselect": "3.0.1",
     "resolve-url-loader": "2.0.3",
     "rollup": "0.43.0",
@@ -107,6 +108,21 @@
     "url-loader": "0.5.9",
     "webpack": "3.0.0",
     "whatwg-fetch": "2.0.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "client/**/*.js",
+      "server/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    }
   },
   "devServer": {
     "contentBase": "client-dist",

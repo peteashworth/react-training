@@ -1,20 +1,8 @@
-import { GraphQLSchema, GraphQLObjectType, GraphQLList } from 'graphql';
+import { GraphQLSchema } from 'graphql';
 
-import { WidgetData } from './widget-data';
-import { widgetType } from './widget-type';
+import { queryType as query } from './types/query-type';
+import { mutationType as mutation } from './types/mutation-type';
 
 export const schema = new GraphQLSchema({
-  query: new GraphQLObjectType({
-
-    name: 'Query',
-    fields: () => ({
-      widgets: {
-        type: new GraphQLList(widgetType),
-        resolve: async (_1, _2, { baseUrl }) => {
-          const widgetData = new WidgetData(baseUrl + '/widgets');
-          return await widgetData.all();
-        }
-      }
-    })
-  })
+  query, mutation
 });
