@@ -1,4 +1,4 @@
-import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLID } from 'graphql';
+import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql';
 
 export const widgetType = new GraphQLObjectType({
 
@@ -8,10 +8,8 @@ export const widgetType = new GraphQLObjectType({
   fields: () => ({
 
     id: {
-      type: GraphQLID,
+      type: GraphQLInt,
       description: 'id of the widget',
-      // if resolve is omitted, this is the default implementation
-      // resolve: (data, _1, _2, { fieldName }) => data[fieldName],
     },
 
     name: {
@@ -22,22 +20,22 @@ export const widgetType = new GraphQLObjectType({
     description: {
       type: GraphQLString,
       description: 'description of the widget',
-    }, // string
+    },
 
     color: {
       type: GraphQLString,
       description: 'color of the widget',
-    }, // string
+    },
 
     size: {
       type: GraphQLString,
       description: 'size of the widget',
-    }, // string
+    },
 
     quantity: {
       type: GraphQLInt,
       description: 'quantity of the widget',
-    }, // int
+    },
 
   }),
 

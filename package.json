@@ -131,8 +131,7 @@
     "proxy": [
       {
         "context": [
-          "/graphql",
-          "/graphql-relay"
+          "/graphql"
         ],
         "target": "http://localhost:3020",
         "changeOrigin": true,

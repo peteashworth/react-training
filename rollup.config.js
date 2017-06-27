@@ -22,18 +22,9 @@ const configGraphQL = (entryFileName, destFileName) => ({
   ],
 });
 
-// const configRelay = configGraphQL;
-
 const widgetsGraphQL = configGraphQL(
   'server/index-widgets-graphql.js',
   'server-dist/index-widgets-graphql.js'
 );
 
 export default [widgetsGraphQL];
-
-// const widgetsRelay = configRelay(
-//   'server/index-widgets-relay.js',
-//   'server-dist/index-widgets-relay.js'
-// );
-
-// export default [widgetsGraphQL, widgetsRelay];

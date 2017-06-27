@@ -2,7 +2,19 @@
   "cars": [
     {
       "id": 1,
-      "make": "GM"
+      "make": "GM",
+      "model": "Volt",
+      "year": 2017,
+      "color": "blue",
+      "price": 21000
+    },
+    {
+      "id": 2,
+      "make": "GM",
+      "model": "Bolt",
+      "year": 2018,
+      "color": "red",
+      "price": 15000
     }
   ],
   "owners": [
@@ -95,6 +107,14 @@
       "size": "small",
       "quantity": 12,
       "id": 9
+    },
+    {
+      "name": "Bob",
+      "description": "Bob is cool",
+      "color": "blue",
+      "size": "small",
+      "quantity": 12,
+      "id": 10
     }
   ],
   "people": [
