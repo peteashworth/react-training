@@ -4,7 +4,7 @@ export class BaseDataClient {
     this._serverUrl = serverUrl;
   }
 
-  _request = (query, variables, operationName) => {
+  _request(query, variables, operationName) {
 
     const body = JSON.stringify({
       query,

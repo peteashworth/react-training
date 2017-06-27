@@ -1,25 +1,16 @@
-import 'bootstrap-loader';
-import '../scss/styles.scss';
-
 import React from 'react';
-
 import ReactDOM from 'react-dom';
 
-import { Jumbotron } from 'react-bootstrap';
+import { ColorTool } from './components/color-tool.components';
+// add an import to bring CarTool
 
-class HelloWorld extends React.Component {
+// exercise 1
+// create a car tool component which display a header with 'Car Tool'
 
-  render() {
-    return <div className="row justify-content-center">
-      <div className="col-8 col-offset-2">
-        <Jumbotron className="center-block">
-          <h1>Welcome to Class!</h1>
-          <p>A starter project for creating React/Redux/GraphQL/Relay applications!</p>
-        </Jumbotron>
-      </div>
-    </div>;
-  }
-}
 
-ReactDOM.render(
-  <HelloWorld />, document.querySelector('main'));
+// ReactDOM.render(<ColorTool />, document.querySelector('main'));
+ReactDOM.render(<CarTool />, document.querySelector('main'));
+
+// ReactDOM.render(
+//   React.createElement(ColorTool),
+//   document.querySelector('main'));

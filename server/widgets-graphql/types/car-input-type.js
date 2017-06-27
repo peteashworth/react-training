@@ -1,4 +1,7 @@
-import { GraphQLInputObjectType, GraphQLString, GraphQLInt, GraphQLFloat } from 'graphql';
+import {
+  GraphQLInputObjectType, GraphQLString,
+  GraphQLInt, GraphQLFloat,
+} from 'graphql';
 
 const fields = () => ({
   make: { type: GraphQLString },

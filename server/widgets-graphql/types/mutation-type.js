@@ -181,7 +181,8 @@ export const mutation = new GraphQLObjectType({
       type: carType,
       resolve: (_, { carId }, { baseUrl }) => {
         const carData = new CarData(baseUrl);
-        return carData.one(carId).then(carToDelete => carData.delete(carId).then(() => carToDelete));
+        return carData.one(carId).then(carToDelete =>
+          carData.delete(carId).then(() => carToDelete));
       }
     },
 
