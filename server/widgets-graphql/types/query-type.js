@@ -1,4 +1,4 @@
-import { GraphQLObjectType, GraphQLList, GraphQLID } from 'graphql';
+import { GraphQLObjectType, GraphQLList, GraphQLInt } from 'graphql';
 
 import { WidgetData } from '../../models/widget-data';
 import { CarData } from '../../models/car-data';
@@ -25,7 +25,7 @@ export const query = new GraphQLObjectType({
       description: 'A single widgets',
       args: {
         widgetId: {
-          type: GraphQLID,
+          type: GraphQLInt,
           description: 'The id of the widget to load',
         }
       },
@@ -34,26 +34,26 @@ export const query = new GraphQLObjectType({
         return widgetData.one(widgetId);
       },
     },
-    widgets: {
-      type: new GraphQLList(widgetType),
-      description: 'A list of widgets',
+    cars: {
+      type: new GraphQLList(carType),
+      description: 'A list of cars',
       resolve: (_1, _2, { baseUrl }) => {
-        const widgetData = new WidgetData(baseUrl);
-        return widgetData.all();
+        const carData = new CarData(baseUrl);
+        return carData.all();
       },
     },
-    widget: {
-      type: widgetType,
-      description: 'A single widgets',
+    car: {
+      type: carType,
+      description: 'A single cars',
       args: {
-        widgetId: {
-          type: GraphQLID,
-          description: 'The id of the widget to load',
+        carId: {
+          type: GraphQLInt,
+          description: 'The id of the car to load',
         }
       },
-      resolve: (_, { widgetId }, { baseUrl }) => {
-        const widgetData = new WidgetData(baseUrl);
-        return widgetData.one(widgetId);
+      resolve: (_, { carId }, { baseUrl }) => {
+        const carData = new CarData(baseUrl);
+        return carData.one(carId);
       },
     }
   }),

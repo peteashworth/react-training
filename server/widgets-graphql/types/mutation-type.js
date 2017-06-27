@@ -156,6 +156,19 @@ export const mutation = new GraphQLObjectType({
       }
     },
 
+    // mutation DeleteCar($deleteCarId: Int) {
+    //   deleteCar(carId: $deleteCarId) {
+    //     id
+    //     make
+    //     model
+    //     year
+    //   }
+    // }
+
+    // {
+    //   "deleteCarId": 3
+    // }
+
     // function name
     deleteCar: {
       // function params
