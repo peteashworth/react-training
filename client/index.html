@@ -10,6 +10,26 @@
 
 <body>
   <main class="container-fluid"></main>
+
+  <script>
+    'use strict';
+
+    function doIt() {
+      console.log(this);
+    }
+
+    doIt();
+    window.doIt();
+
+    const t = {
+      id: 2,
+      doIt,
+    };
+
+    t.doIt();
+
+    console.log(doIt === t.doIt);
+  </script>
 </body>
 
 </html>
