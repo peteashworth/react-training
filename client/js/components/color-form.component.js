@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { BaseComponent } from './base-component';
 
@@ -13,6 +14,12 @@ import { BaseComponent } from './base-component';
 // the state
 
 export class ColorForm extends BaseComponent {
+
+  static propTypes = {
+    onSubmitColor: PropTypes.func.isRequired,
+  }
+
+  // https://facebook.github.io/react/docs/typechecking-with-proptypes.html
 
   constructor(props) {
     super(props);
@@ -44,3 +51,5 @@ export class ColorForm extends BaseComponent {
   }
 
 }
+
+// ColorForm.propTypes = { };

@@ -27,7 +27,7 @@ export class ColorTool extends React.Component {
     return <div>
       <ToolHeader headerText="Color Tool" />
       <UnorderedList itemList={this.state.colorList} />
-      <ColorForm onSubmitColor={this.addColor} />
+      <ColorForm />
     </div>;
   }
 
