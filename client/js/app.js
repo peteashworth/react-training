@@ -10,6 +10,6 @@ const colors = ['blue', 'green', 'red', 'orange'];
 // use ToolHeader for Car Tool
 // Move CarTable to its own component
 
-ReactDOM.render(<div>
-  <ColorTool colorList={colors} />
-</div>, document.querySelector('main'));
+// ReactDOM.render(<div>
+//   <ColorTool colorList={colors} />
+// </div>, document.querySelector('main'));

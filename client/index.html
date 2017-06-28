@@ -14,21 +14,80 @@
   <script>
     'use strict';
 
-    function doIt() {
-      console.log(this);
+    // function doIt() {
+    //   console.log(this);
+    // }
+
+    // doIt();
+    // window.doIt();
+
+    // const t = {
+    //   id: 2,
+    //   doIt,
+    // };
+
+    // t.doIt();
+
+    // console.log(doIt === t.doIt);
+
+    // function bindFn(fn, valueOfThis) {
+
+    //   // closure
+    //   return function() {
+    //     fn.call(valueOfThis);
+    //   };
+
+    // }
+
+    // newOnChange = bindFn(onChange, { id: 2});
+
+    // newOnChange();
+
+    class Person {
+      constructor(fn, ln) {
+
+        let _fn = fn;
+
+        this.getFn = () => {
+          return _fn;
+        };
+        this._ln = ln;
+
+      }
+
+      getFullName() {
+        return this._fn + ' ' + this._ln;
+      }
+
     }
 
-    doIt();
-    window.doIt();
+    Person.prototype.doSomething = function () {
+      // this would the instance
+    }
 
-    const t = {
-      id: 2,
-      doIt,
-    };
+    Person.prototype.doSomething2 = () => {
+      // this is the surrounding lexical scope
+    }
 
-    t.doIt();
+    function Person2(fn, ln) {
+      this._fn = fn;
+      this._ln = ln;
+    }
 
-    console.log(doIt === t.doIt);
+    Person2.prototype.getFullName = function () {
+      return this._fn + ' ' + this._ln;
+    }
+
+
+    const p = new Person('Bob', 'Smith');
+    console.log(p.getFullName());
+    const p2 = new Person2('Bob', 'Smith');
+    console.log(p2.getFullName());
+
+    console.dir(p);
+    console.dir(p2);
+    console.dir(Person);
+    console.dir(Person2);
   </script>
 </body>
 
