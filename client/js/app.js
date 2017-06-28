@@ -5,4 +5,9 @@ import { ColorTool, } from './components/color-tool.components';
 
 const colors = ['blue', 'green', 'red', 'orange'];
 
-ReactDOM.render(<ColorTool colorList={colors} />, document.querySelector('main'));
+document.addEventListener('DOMContentLoaded', () => {
+
+  ReactDOM.render(<ColorTool colorList={colors} />, document.querySelector('main'));
+
+});
+

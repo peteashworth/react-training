@@ -43,51 +43,51 @@
 
     // newOnChange();
 
-    class Person {
-      constructor(fn, ln) {
+    // class Person {
+    //   constructor(fn, ln) {
 
-        let _fn = fn;
+    //     let _fn = fn;
 
-        this.getFn = () => {
-          return _fn;
-        };
-        this._ln = ln;
+    //     this.getFn = () => {
+    //       return _fn;
+    //     };
+    //     this._ln = ln;
 
-      }
+    //   }
 
-      getFullName() {
-        return this._fn + ' ' + this._ln;
-      }
+    //   getFullName() {
+    //     return this._fn + ' ' + this._ln;
+    //   }
 
-    }
+    // }
 
-    Person.prototype.doSomething = function () {
-      // this would the instance
-    }
+    // Person.prototype.doSomething = function () {
+    //   // this would the instance
+    // }
 
-    Person.prototype.doSomething2 = () => {
-      // this is the surrounding lexical scope
-    }
+    // Person.prototype.doSomething2 = () => {
+    //   // this is the surrounding lexical scope
+    // }
 
-    function Person2(fn, ln) {
-      this._fn = fn;
-      this._ln = ln;
-    }
+    // function Person2(fn, ln) {
+    //   this._fn = fn;
+    //   this._ln = ln;
+    // }
 
-    Person2.prototype.getFullName = function () {
-      return this._fn + ' ' + this._ln;
-    }
+    // Person2.prototype.getFullName = function () {
+    //   return this._fn + ' ' + this._ln;
+    // }
 
 
-    const p = new Person('Bob', 'Smith');
-    console.log(p.getFullName());
-    const p2 = new Person2('Bob', 'Smith');
-    console.log(p2.getFullName());
+    // const p = new Person('Bob', 'Smith');
+    // console.log(p.getFullName());
+    // const p2 = new Person2('Bob', 'Smith');
+    // console.log(p2.getFullName());
 
-    console.dir(p);
-    console.dir(p2);
-    console.dir(Person);
-    console.dir(Person2);
+    // console.dir(p);
+    // console.dir(p2);
+    // console.dir(Person);
+    // console.dir(Person2);
   </script>
 </body>
 
