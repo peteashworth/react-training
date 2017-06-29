@@ -44,5 +44,3 @@ export class UnorderedList extends React.Component {
   }
 
 }
-
-}
