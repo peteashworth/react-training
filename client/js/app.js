@@ -31,8 +31,8 @@ store.subscribe(() => {
 
 });
 
-// add(1); // doing this -> store.dispatch(addActionCreator(1));
-// subtract(2);
-// add(3);
-// subtract(4);
-// add(5);
+// exercise part 1 - build the MyCalcutor component
+
+
+
+// exercise part 2 - implement multiply and divide
