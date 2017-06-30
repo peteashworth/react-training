@@ -1,84 +1,59 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 
-import { createStore, bindActionCreators } from 'redux';
-import { connect, Provider } from 'react-redux';
-
-const reducer = (state = { result: 0 }, action) => {
-  switch (action.type) {
-    case 'ADD':
-      return Object.assign({}, state, { result: state.result + action.value });
-    case 'SUBTRACT':
-      return Object.assign({}, state, { result: state.result - action.value });
-    default:
-      return state;
-  }
-};
-
-const store = createStore(reducer);
-
-const addActionCreator = value => ({ type: 'ADD', value });
-const subtractActionCreator = value => ({ type: 'SUBTRACT', value });
-
-// map the store's application state to the presentational component's props
-const mapStateToProps = (appState) => ({ result: appState.result });
-
-// map the store's bound action creators to the presentational component's props
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-  add: addActionCreator,
-  subtract: subtractActionCreator,
-}, dispatch);
+// create a fetch call to insert a car, then retrieve the
+// list of cars, and the list should include the new car
 
 
+// let conPromise;
 
-class MyCalculator extends React.Component {
+// const getConnection() {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      num: '',
-    };
-    this.onChange = this.onChange.bind(this);
-  }
+//   if (!conPromise) {
+//     conPromise = new Promise(function (resolve, reject) {
+//       connectToDb(function (con) {
+//         resolve(con);
+//       })
 
-  onChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  }
+//     });
 
-  onAddClick = () => {
-    this.props.add(Number(this.state.num));
-    this.setState({
-      num: '',
-    });
-  }
+//   }
 
-  onSubtractClick = () => {
-    this.props.subtract(Number(this.state.num));
-    this.setState({
-      num: '',
-    });
-  }
+//   return conPromise;
 
-  render() {
-    return <div>
-      <input type="text" id="num-input" name="num" value={this.state.num} onChange={this.onChange} />
-      <button type="button" onClick={this.onAddClick}>+</button>
-      <button type="button" onClick={this.onSubtractClick}>-</button>
-      <p>Result: {this.props.result}</p>
-    </div>;
-  }
-}
+// }
 
-// defines the connection between the store and presentational component
-const containerCreator = connect(mapStateToProps, mapDispatchToProps);
+// getConnection().then((con) => Promise.all([con, runQuery(con, 'select * from widget')])).then(results => results[0] // would be con)
 
-// creates the container which implements the connection between store and the presentational component
-const MyCalculatorContainer = containerCreator(MyCalculator);
 
-ReactDOM.render(
-  <Provider store={store}>
-    <MyCalculatorContainer />
-  </Provider>
-  , document.querySelector('main'));
+// GET request with no request body, no custom headers
+// fetch('http://localhost:3010/widgets')
+//   .then(res => res.json())
+//   .then(widgets => console.log(widgets))
+//   .then(() => fetch('http://localhost:3010/widgets/1'))
+//   //.then(() => Promise.reject('sorry we do not give cards to people with a 350 credit score'))
+//   .then(res => res.json())
+//   .then(widget => console.log(widget))
+//   .catch((err) => console.error(err));
+
+
+// const p1 = fetch('http://localhost:3010/widgets').then(res => res.json());
+// const p2 = fetch('http://localhost:3040/widgets/1').then(res => res.json());
+
+// p1.then(results => console.info(results));
+
+// Promise.all([p1, p2]).then(function allDone(result) {
+//   console.log(result);
+// }).catch(err => console.error(err));
+
+// fetch('http://localhost:3010/widgets', {
+//   method: 'POST',
+//   headers: new Headers({ 'Content-Type': 'application/json' }),
+//   body: JSON.stringify({
+//     name: 'a widget',
+//     description: 'this is a cool widget',
+//     color: 'red',
+//     size: 'small',
+//     quantity: 1,
+//   })
+// }).then(res => res.json()).then(results => console.log(results));
+
+

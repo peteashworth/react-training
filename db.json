@@ -187,6 +187,30 @@
       "size": "large",
       "quantity": 2,
       "id": 20
+    },
+    {
+      "name": "a widget",
+      "description": "this is a cool widget",
+      "color": "red",
+      "size": "small",
+      "quantity": 1,
+      "id": 21
+    },
+    {
+      "name": "a widget",
+      "description": "this is a cool widget",
+      "color": "red",
+      "size": "small",
+      "quantity": 1,
+      "id": 22
+    },
+    {
+      "name": "a widget",
+      "description": "this is a cool widget",
+      "color": "red",
+      "size": "small",
+      "quantity": 1,
+      "id": 23
     }
   ],
   "people": [
