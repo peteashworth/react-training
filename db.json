@@ -7,14 +7,6 @@
       "year": 2017,
       "color": "blue",
       "price": 21000
-    },
-    {
-      "id": 2,
-      "make": "GM",
-      "model": "Bolt",
-      "year": 2018,
-      "color": "red",
-      "price": 15000
     }
   ],
   "owners": [
