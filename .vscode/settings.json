@@ -6,10 +6,10 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-    "**/node_modules": true,
+    "**/node_modules": false,
     "**/.vscode": true,
-    "**/server-dist": true,
-    "**/client-dist": true,
+    "**/server-dist": false,
+    "**/client-dist": false,
     "**/dist": true
   },
   "editor.formatOnSave": true,
