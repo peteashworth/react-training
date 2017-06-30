@@ -1,21 +1,55 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import { createStore, bindActionCreators } from 'redux';
+import { createStore, bindActionCreators, applyMiddleware } from 'redux';
 import { connect, Provider } from 'react-redux';
+import keyMirror from 'key-mirror';
+import thunk from 'redux-thunk';
+
+const actionTypes = keyMirror({
+  REFRESH_CARS_REQUEST: null,
+  REFRESH_CARS_DONE: null,
+});
+
+const refreshCarsRequest = () => ({ type: actionTypes.REFRESH_CARS_REQUEST });
+
+const refreshCarsDone = cars => ({ type: actionTypes.REFRESH_CARS_DONE, cars });
+
+const refreshCars = () => {
+
+  return dispatch => {
+
+    dispatch(refreshCarsRequest());
+
+    return fetch('http://localhost:3010/cars')
+      .then(res => res.json())
+      .then(cars => dispatch(refreshCarsDone(cars)));
+
+  };
+
+};
+
+// const deleteCar = (carIdToDelete) => { };
+
 
 const reducer = (state = { cars: [] }, action) => {
 
   switch (action.type) {
+    case actionTypes.REFRESH_CARS_REQUEST:
+      return Object.assign({}, state, { cars: [] });
+    case actionTypes.REFRESH_CARS_DONE:
+      return Object.assign({}, state, { cars: action.cars });
     default:
       return state;
   }
 
 };
 
-const store = createStore(reducer);
-
+const store = createStore(reducer, applyMiddleware(thunk));
 
 const CarTable = props => {
+
+  // implement delete car and as part of the delete, refresh the list
 
   const deleteCar = carId => {
     this.props.deleteCar(carId);
@@ -33,7 +67,7 @@ const CarTable = props => {
       </tr>
     </thead>
     <tbody>
-      {props.cars.map(car => <tr>
+      {props.cars.map(car => <tr key={car.id}>
         <td>{car.make}</td>
         <td>{car.model}</td>
         <td>{car.year}</td>
@@ -54,12 +88,28 @@ CarTable.defaultProps = {
   cars: [],
 };
 
+class CarTool extends React.Component {
 
-const CarTableContainer = connect(
+  static propTypes = {
+    refreshCars: PropTypes.func,
+  }
+
+  componentDidMount() {
+    this.props.refreshCars();
+  }
+
+  render() {
+    return <CarTable {...this.props} />;
+  }
+
+}
+
+
+const CarToolContainer = connect(
   ({ cars }) => ({ cars }), // mapStateToProps
-  dispatch => bindActionCreators(actions, dispatch), // mapDispatchToProps
-)(CarTable);
+  dispatch => bindActionCreators({ refreshCars }, dispatch), // mapDispatchToProps
+)(CarTool);
 
 ReactDOM.render(<Provider store={store}>
-  <CarTableContainer />
+  <CarToolContainer />
 </Provider>, document.querySelector('main'));
