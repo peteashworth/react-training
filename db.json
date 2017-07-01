@@ -7,6 +7,14 @@
       "year": 2017,
       "color": "blue",
       "price": 21000
+    },
+    {
+      "make": "Ford",
+      "model": "T",
+      "year": 2013,
+      "color": "red",
+      "price": 123,
+      "id": 2
     }
   ],
   "owners": [

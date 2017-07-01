@@ -164,4 +164,6 @@ const CarToolContainer = connect(
   dispatch => bindActionCreators({ refreshCars, deleteCar }, dispatch), // mapDispatchToProps
 )(CarTool);
 
-ReactDOM.render(<CarToolContainer store={store} />, document.querySelector('main'));
+ReactDOM.render(<Provider>
+  <CarToolContainer store={store} />
+</Provider>, document.querySelector('main'));
